@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "clean": "rm -rf _site",
+    "generate": "deno task clean && deno run --allow-read --allow-write --allow-env --allow-sys npm:@11ty/eleventy@canary",
+    "dev": "deno task generate && deno run --watch --allow-net --allow-read --unstable-kv server/main.ts",
+    "prod": "deno task generate"
+  },
+  "imports": {
+    "@11ty/eleventy": "npm:@11ty/eleventy@canary",
+    "@11ty/eleventy-plugin-webc": "https://esm.sh/@11ty/eleventy-plugin-webc"
+  }
+}

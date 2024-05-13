@@ -1,0 +1,70 @@
+{% set currentUrl = page.url %}
+{%- css %}
+  .nav{
+    margin-bottom: var(--space);
+    font-family: var(--fontFam);
+    font-weight: 300;
+    font-size: 1.2em;
+  }
+    
+  .nav ul{
+    display: flex;
+    gap: var(--space);
+    margin: 0;
+    padding: 0
+  }
+
+  .nav ul li{
+    list-style: none;
+    padding: 0; 
+    margin: 0;
+  }
+
+  .nav [aria-current="page"]{
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--linkColor);
+  }
+
+  .nav ul li:first-child{
+    margin-left: calc( var(--space)/ 3 * -1)
+  }
+
+  .nav ul li a{
+    padding: var(--space) calc( var(--space)/ 2);
+    display: block;
+  }
+{% endcss %}
+
+{%- js %}
+	document.body.addEventListener('htmx:afterSwap', function(evt) {
+		let currentSlug = window.location.pathname;
+		let navLinks = document.querySelectorAll('#nav a');
+
+		navLinks.forEach(function(link) {
+			let linkSlug = link.getAttribute('href');
+			if (currentSlug === linkSlug) {
+				link.setAttribute("aria-current", "page")
+			}else{
+				link.removeAttribute("aria-current")
+			}
+		});
+	});
+{% endjs %}
+
+<nav id="nav" class="nav">
+  <ul role="list">
+    <li>
+      <a {% if currentUrl === '/' %}aria-current="page"{% endif %} href="/">11ty</a>
+    </li>
+
+    {% for link in collections.pages %}
+      <li>
+        <a
+        {% if currentUrl === link.url %}aria-current="page"{% endif %}
+        href="{{ link.url }}">
+          {{ link.data.slug }}
+        </a>
+      </li>
+    {%- endfor %}
+  </ul>
+</nav>

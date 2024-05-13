@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+
+:root{
+  --fontFam: var(--fontFamFallback);
+  --fontFamFallback: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",sans-serif;
+  
+  --pink: #DA478E;
+  --blue: #3E67CA;
+  --blueHWB: 222 24% 21%;
+  --denogrey: #8E717F;
+  --denogreydark: #56454d;
+	--lightgrey: #d3d3d3;
+
+
+  --white-50: rgba(255,255,255,0.5);
+	--space: 0.8em;
+	--space-2: calc(var(--space) * 2);
+	--space-3: calc(var(--space) * 3);
+	--margin: var(--space-2);
+	--linkColor: var(--blue);
+	--underline-resting: hwb(var(--blueHWB)/ 0.3);
+	--foreground-100: var(--lightgrey)
+}
+
+html{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-size: 100%;
+}
+
+body {
+  overflow-y: scroll;
+  font-size: 1em;
+  background-color: var(--background);
+  font-family: var(--fontFam);
+  color: var(--foreground);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-width: 58ch;
+  margin: auto;
+}
+
+.layout{
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+    "a"
+    "b"
+    "c";
+  height: 100%;
+  margin: auto;
+}
+
+main{
+  max-width: 56ch;
+  padding: 0 calc(var(--space) * 2) var(--space) calc(var(--space) * 2);
+}
+
+pre{ 
+  display: block;
+  background: var(--denogreydark);
+  color: #fff;
+  padding: 0.5em;
+  border-radius: 4px;
+  font-size: 1rem;
+  border: 1px solid rgba(255,255,255,0.2);
+} 
+
+h1, h2, h3, h4, h5, h6, p { 
+  margin: 0; 
+  line-height: 1;
+}
+
+h1, h2, h3, h4, h5, h6{
+  color: var(--denogrey);
+  font-family: var(--fontFam);
+}
+
+h3{
+  color: var(--pink);
+}
+
+main p{
+  line-height: 1.3;
+  color: var(--denogreydark);
+}
+
+a{
+  text-underline-offset: 0.3em;
+  text-decoration-color: var(--underline-resting);
+}
+
+a:hover{
+  text-decoration-color: var(--linkColor);
+}
+
+a:active, a:link{
+  color: var(--linkColor);
+}
+
+a:visited{
+  color: var(--linkColor);
+}
+
+#main div > *+* {
+  margin-top: calc(var(--space));
+}
+
+#main div > *:not(h2)+*:is(h2,h3) {
+  margin-top: var(--space-2);
+}
+
+.header{
+  display: flex;
+  align-items: flex-start;
+  padding: var(--space) var(--space) 0 var(--space-2);
+  justify-content: space-between;
+  background-color: var(--background);
+  color: var(--black);
+}
+
+.header h2{
+  font-size: 1.9em;
+  margin: var(--space) 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}

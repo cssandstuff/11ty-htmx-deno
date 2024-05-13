@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>{{meta.siteName}} — {{title}}</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Starter site for people wanting to use 11ty with Deno and Htmx">
+		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
+
+		<link rel="stylesheet" href="/css/style.css" webc:keep />
+		<style id="styles" data-hx-swap-oob="true">{% getBundle "css" %}</style>
+
+		<script webc:keep src="https://unpkg.com/htmx.org@latest"></script>
+		<style id="styleswap"></style>
+	</head>
+	<body data-hx-boost="true" data-hx-target="#content" data-hx-select="#content" data-hx-swap="outerHTML focus-scroll:false">
+		<h1 aria-live="polite" class="visually-hidden"  id="mainHeading" data-hx-swap-oob="innerHTML">{{title}}</h1>
+		{% renderTemplate "webc" %}<c-loader></c-loader>{% endrenderTemplate %}
+		<div class="layout">
+			<header class="header">
+				<h2>11tHD starter project</h2>
+			</header>
+			<main id="main">
+				{% include '_navigation.njk' %}
+				<div id="content" aria-live="polite">{{ content | safe }}</div>
+				
+			</main>
+			{% renderTemplate "webc" %}<c-footer></c-footer>{% endrenderTemplate %}
+		</div>
+		<script>{% getBundle "js" %}</script>
+	</body>
+
+	</html>
