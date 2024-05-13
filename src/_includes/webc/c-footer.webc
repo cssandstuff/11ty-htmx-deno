@@ -1,10 +1,10 @@
 <footer webc:root="override">
 	<ul>
 		<li>
-		<a href="https://github.com/cssandstuff/11ty-htmx-deno">View on github</a>
+		<a target="_blank" href="https://github.com/cssandstuff/11ty-htmx-deno">View on github</a>
 		</li>
 		<li>
-			<a href="http://11ty.deno.dev">View demo site</a>
+			<a target="_blank" href="http://11ty.deno.dev">View demo site</a>
 		</li>
 </ul>
 </footer>
@@ -12,11 +12,17 @@
 <style webc:scoped>
 	:host {
 		margin-top: var(--space-3);
-		padding: var(--space) calc(var(--space) * 1.5);
+		padding: var(--space) var(--space-2);
 		background-color: var(--foreground-100);
 		display: flex;
     justify-content: space-between;
 		align-items: baseline;
 		border-radius: 7px 7px 0 0;
+	}
+	:host ul{
+		margin: 0; padding: 0;
+		display: flex;
+		gap: var(--space-2);
+		list-style: none;
 	}
 </style>

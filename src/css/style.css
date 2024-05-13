@@ -12,7 +12,7 @@
   --blueHWB: 222 24% 21%;
   --denogrey: #8E717F;
   --denogreydark: #56454d;
-	--lightgrey: #d3d3d3;
+	--lightgrey: #f6f6f6;
 
 
   --white-50: rgba(255,255,255,0.5);
@@ -91,7 +91,7 @@ main p{
 }
 
 a{
-  text-underline-offset: 0.3em;
+  text-underline-offset: 0.2em;
   text-decoration-color: var(--underline-resting);
 }
 

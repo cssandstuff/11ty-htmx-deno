@@ -14,7 +14,7 @@
 		<script webc:keep src="https://unpkg.com/htmx.org@latest"></script>
 		<style id="styleswap"></style>
 	</head>
-	<body data-hx-boost="true" data-hx-target="#content" data-hx-select="#content" data-hx-swap="outerHTML focus-scroll:false">
+	<body data-hx-boost="true" data-hx-target="#content" data-hx-select="#content" data-hx-swap="outerHTML show:none">
 		<h1 aria-live="polite" class="visually-hidden"  id="mainHeading" data-hx-swap-oob="innerHTML">{{title}}</h1>
 		{% renderTemplate "webc" %}<c-loader></c-loader>{% endrenderTemplate %}
 		<div class="layout">
