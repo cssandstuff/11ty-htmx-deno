@@ -21,9 +21,9 @@
 			<header class="header">
 				<h2>11tHD starter project</h2>
 			</header>
-			<main id="main">
+			<main id="main" aria-live="polite">
 				{% include '_navigation.njk' %}
-				<div id="content" aria-live="polite">{{ content | safe }}</div>
+				<div id="content">{{ content | safe }}</div>
 				
 			</main>
 			{% renderTemplate "webc" %}<c-footer></c-footer>{% endrenderTemplate %}
