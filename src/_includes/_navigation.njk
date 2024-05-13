@@ -1,4 +1,38 @@
 {% set currentUrl = page.url %}
+{%- js %}
+	document.body.addEventListener('htmx:afterSwap', function(evt) {
+		let currentSlug = window.location.pathname;
+		let navLinks = document.querySelectorAll('#nav a');
+
+		navLinks.forEach(function(link) {
+			let linkSlug = link.getAttribute('href');
+			if (currentSlug === linkSlug) {
+				link.setAttribute("aria-current", "page")
+			}else{
+				link.removeAttribute("aria-current")
+			}
+		});
+	});
+{% endjs %}
+
+<nav id="nav" class="nav">
+  <ul role="list">
+    <li>
+      <a {% if currentUrl === '/' %}aria-current="page"{% endif %} href="/">11ty</a>
+    </li>
+
+    {% for link in collections.pages %}
+      <li>
+        <a
+        {% if currentUrl === link.url %}aria-current="page"{% endif %}
+        href="{{ link.url }}">
+          {{ link.data.slug }}
+        </a>
+      </li>
+    {%- endfor %}
+  </ul>
+</nav>
+
 {%- css %}
   .nav{
     margin-bottom: var(--space);
@@ -34,37 +68,3 @@
     display: block;
   }
 {% endcss %}
-
-{%- js %}
-	document.body.addEventListener('htmx:afterSwap', function(evt) {
-		let currentSlug = window.location.pathname;
-		let navLinks = document.querySelectorAll('#nav a');
-
-		navLinks.forEach(function(link) {
-			let linkSlug = link.getAttribute('href');
-			if (currentSlug === linkSlug) {
-				link.setAttribute("aria-current", "page")
-			}else{
-				link.removeAttribute("aria-current")
-			}
-		});
-	});
-{% endjs %}
-
-<nav id="nav" class="nav">
-  <ul role="list">
-    <li>
-      <a {% if currentUrl === '/' %}aria-current="page"{% endif %} href="/">11ty</a>
-    </li>
-
-    {% for link in collections.pages %}
-      <li>
-        <a
-        {% if currentUrl === link.url %}aria-current="page"{% endif %}
-        href="{{ link.url }}">
-          {{ link.data.slug }}
-        </a>
-      </li>
-    {%- endfor %}
-  </ul>
-</nav>

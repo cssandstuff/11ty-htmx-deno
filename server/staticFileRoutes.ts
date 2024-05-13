@@ -8,10 +8,7 @@ async function pathExists(path: string) {
     if (e && e instanceof Deno.errors.NotFound) {
       console.log("no file or folder routes");
       return false;
-    } else {
-      console.log("lonely");
-      return false;
-    }
+    } 
   }
 }
 

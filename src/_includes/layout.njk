@@ -4,9 +4,7 @@
 		<title>{{meta.siteName}} — {{title}}</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Starter site for people wanting to use 11ty with Deno and Htmx">
-		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
-		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
+		<meta name="description" content="Starter site for people wanting to use 11ty with Deno (and Htmx)">
 
 		<link rel="stylesheet" href="/css/style.css" webc:keep />
 		<style id="styles" data-hx-swap-oob="true">{% getBundle "css" %}</style>
@@ -24,7 +22,6 @@
 			<main id="main" aria-live="polite">
 				{% include '_navigation.njk' %}
 				<div id="content">{{ content | safe }}</div>
-				
 			</main>
 			{% renderTemplate "webc" %}<c-footer></c-footer>{% endrenderTemplate %}
 		</div>
