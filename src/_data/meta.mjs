@@ -3,7 +3,5 @@ export default {
   // adjusted pending your host
   url: Deno.env.get("Host") || "http://localhost:8080",
   siteName: "11ty deno htmx",
-  siteDescription: "",
-  authorName: "",
-  twitterUsername: "", // no `@`
+  siteDescription: "A quick way to get started with Eleventy and deno deploy (also using HTMX)",
 };
