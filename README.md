@@ -1,3 +1,7 @@
+Hi! thanks for checking this out, I&rsquo;ve also written [a little bit of background](https://cssandstuff.com/writing/pairing-eleventy-with-htmx-and-deno/) about this project as well as some help [getting deno working with 11ty](https://cssandstuff.com/writing/eleventy-with-a-basic-deno-static-server-setup/).
+
+you can also view the project at [11ty.deno.dev](https://11ty.deno.dev/)
+
 # 11ty + Htmx + Deno starter.
 
 Now that Eleventy supports ESM (from version 3.x), it means we can use it in places we couldn't previously.
