@@ -14,6 +14,6 @@ Deno is a fast, secure and great alternative to Node and now supports most of th
 
 I like what this project sets out to achieve and it pairs great with Eleventy... you can do client side routing pretty easily with minimal changes to your markup.
 
-### Notes about WebC
+### Notes about Vento
 
-At the time of writing WebC has only partial support at the moment when running in Deno, using attributes like @content etc seem to fail, so I've paired my WebC usage back to just the stuff that works. Hopefully there'll soon be a WebC release that is also ESM in which case it should all just work. In any case, nunjucks just works and you can still add things to a css bundle per file, so the only real thing I miss from using WebC is css scoping.
+Vento is a new layout/templating engine written in javascript which has a well supported plugin module for 11ty and works natively in deno too, so I've switched over to using that for everthing. 

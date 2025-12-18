@@ -2,7 +2,7 @@
 title: Deno
 slug: Deno
 tags: pages
-layout: layout.njk
+layout: layout.vto
 ---
 
 ## How do I use this?

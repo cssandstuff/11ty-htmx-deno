@@ -1,6 +1,6 @@
-<div id="loader" webc:root="override"><span class="loader"></span></div>
+<div id="loader"><span class="loader"></span></div>
 
-<style webc:scoped>
+{{- css }}
   @keyframes fade{
     0%{
       background-position:-50% 50%;
@@ -16,7 +16,7 @@
     }
   }
 
-  :host{
+  #loader{
     display: none;
     width: 100%;
     height: 6px;
@@ -25,24 +25,22 @@
     overflow: hidden;
   } 
 
-  :host .loader{
-    animation: fade 2s infinite;
+  #loader .loader{
+    animation: fade linear 2s infinite;
     width: 100vw;
     display: block;
     height: 100%;
     position: absolute;
     top: 0px;
     left: 0;
-    background: linear-gradient( 90deg, hwb(var(--blueHWB)/0), hwb(var(--blueHWB)/0.5), hwb(var(--blueHWB)/0));
+    background: linear-gradient(90deg, var(--grey-a0), var(--grey-a50), var(--grey-a0));
     background-size: 75% 100%;
   }
 
-</style>
-<style>
   /* show loader animaton shimmer bar, when requests are being made */
   body:has(#nav .htmx-request, #content a.htmx-request) #loader,
   body:has(.htmx-request) #loader
   {
     display: block;
   }
-</style>
+{{ /css }}
