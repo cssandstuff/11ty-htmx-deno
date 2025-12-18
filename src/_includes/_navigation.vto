@@ -36,7 +36,8 @@
 
 {{- css }}
   .nav{
-    margin-bottom: var(--space);
+    padding: 0 var(--space) 0 calc( var(--space) * 1.5 );
+    margin-bottom: var(--space-2);
     font-family: var(--fontFam);
     font-weight: 300;
     font-size: 1.2em;
@@ -57,7 +58,7 @@
 
   .nav [aria-current="page"]{
     text-decoration-thickness: 2px;
-    text-decoration-color: var(--linkColor);
+    text-decoration-color: var(--link-color);
   }
 
   .nav ul li:first-child{

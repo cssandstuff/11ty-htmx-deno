@@ -7,51 +7,39 @@
   --fontFam: var(--fontFamFallback);
   --fontFamFallback: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",sans-serif;
   
-  --pink: #DA478E;
-  --blue: #3E67CA;
-  --blueHWB: 222 24% 21%;
-  --denogrey: #8E717F;
-  --denogreydark: #56454d;
-	--lightgrey: #f6f6f6;
-
-
-  --white-50: rgba(255,255,255,0.5);
-	--space: 0.8em;
+  --grey: #444;
+  --grey-a50: hwb(0 27% 73% / 0.5);
+  --grey-a0: hwb(0 27% 73% / 0);
+	--space: 0.75lh;
 	--space-2: calc(var(--space) * 2);
 	--space-3: calc(var(--space) * 3);
 	--margin: var(--space-2);
-	--linkColor: var(--blue);
-	--underline-resting: hwb(var(--blueHWB)/ 0.3);
-	--foreground-100: var(--lightgrey)
+	--link-color: var(--grey);
 }
 
-html{
+html, body{
   margin: 0;
   padding: 0;
   height: 100%;
-  font-size: 100%;
 }
 
 body {
   overflow-y: scroll;
   font-size: 1em;
-  background-color: var(--background);
   font-family: var(--fontFam);
-  color: var(--foreground);
-  margin: 0;
-  padding: 0;
-  height: 100%;
+  color: var(--grey);
   max-width: 58ch;
   margin: auto;
 }
 
 .layout{
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto 1fr auto;
   grid-template-areas: 
-    "a"
-    "b"
-    "c";
+    "header"
+    "navigation"
+    "content"
+    "footer";
   height: 100%;
   margin: auto;
 }
@@ -63,7 +51,7 @@ main{
 
 pre{ 
   display: block;
-  background: var(--denogreydark);
+  background: var(--grey);
   color: #fff;
   padding: 0.5em;
   border-radius: 4px;
@@ -74,37 +62,29 @@ pre{
 h1, h2, h3, h4, h5, h6, p { 
   margin: 0; 
   line-height: 1;
-}
-
-h1, h2, h3, h4, h5, h6{
-  color: var(--denogrey);
+  color: var(--grey);
   font-family: var(--fontFam);
-}
-
-h3{
-  color: var(--pink);
 }
 
 main p{
   line-height: 1.3;
-  color: var(--denogreydark);
 }
 
 a{
   text-underline-offset: 0.2em;
-  text-decoration-color: var(--underline-resting);
+  text-decoration-color: var(--grey-a50);
 }
 
 a:hover{
-  text-decoration-color: var(--linkColor);
+  text-decoration-color: var(--link-color);
 }
 
 a:active, a:link{
-  color: var(--linkColor);
+  color: var(--link-color);
 }
 
 a:visited{
-  color: var(--linkColor);
+  color: var(--link-color);
 }
 
 #main div > *+* {
@@ -121,7 +101,7 @@ a:visited{
   padding: var(--space) var(--space) 0 var(--space-2);
   justify-content: space-between;
   background-color: var(--background);
-  color: var(--black);
+  color: var(--grey);
 }
 
 .header h2{
@@ -139,4 +119,59 @@ a:visited{
   clip: rect(0,0,0,0);
   white-space: nowrap;
   border: 0;
+}
+
+
+@keyframes fade-in {
+  from { 
+    opacity: 0; 
+    scale: 0.996; 
+  }
+}
+
+@keyframes fade-out {
+  to { 
+    opacity: 0; 
+    scale: 0.999; 
+  }
+}
+
+
+/* View transitions stuff, only needed if you want transitions when switching routes */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.33s;
+  animation-timing-function: cubic-bezier(0.42, 0, 0.29, 1);
+  mix-blend-mode: normal;
+}
+
+/* feels like cheating */
+body #main{
+  view-transition-name: mainbod;
+}
+
+
+::view-transition-old(mainbod),
+::view-transition-new(mainbod) {
+  mix-blend-mode: normal;
+  animation: none;
+}
+
+::view-transition-old(mainbod) {
+  animation: 160ms cubic-bezier(0.4, 0, 1, 1) both fade-out;
+
+}
+
+::view-transition-new(mainbod) {
+  animation: 200ms cubic-bezier(0, 0, 0.2, 1) 160ms both fade-in;
+  object-fit: cover;
+}
+
+/* if people prefer to go without */
+@media (prefers-reduced-motion) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
 }

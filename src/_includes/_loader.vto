@@ -1,6 +1,6 @@
 <div id="loader"><span class="loader"></span></div>
 
-<style>
+{{- css }}
   @keyframes fade{
     0%{
       background-position:-50% 50%;
@@ -26,14 +26,14 @@
   } 
 
   #loader .loader{
-    animation: fade 2s infinite;
+    animation: fade linear 2s infinite;
     width: 100vw;
     display: block;
     height: 100%;
     position: absolute;
     top: 0px;
     left: 0;
-    background: linear-gradient( 90deg, hwb(var(--blueHWB)/0), hwb(var(--blueHWB)/0.5), hwb(var(--blueHWB)/0));
+    background: linear-gradient(90deg, var(--grey-a0), var(--grey-a50), var(--grey-a0));
     background-size: 75% 100%;
   }
 
@@ -43,5 +43,4 @@
   {
     display: block;
   }
-</style>
-
+{{ /css }}

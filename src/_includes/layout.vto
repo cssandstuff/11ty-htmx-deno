@@ -12,15 +12,15 @@
 		<script src="https://unpkg.com/htmx.org@latest"></script>
 		<style id="styleswap"></style>
 	</head>
-	<body data-hx-boost="true" data-hx-target="#content" data-hx-select="#content" data-hx-swap="outerHTML show:none">
+	<body data-hx-boost="true" data-hx-target="#content" data-hx-select="#content" data-hx-swap="outerHTML transition:true show:none">
 		<h1 aria-live="polite" class="visually-hidden"  id="mainHeading" data-hx-swap-oob="innerHTML">{{ title }}</h1>
 		{{ include "./_loader.vto" }}
 		<div class="layout">
 			<header class="header">
 				<h2>11tyHD starter project</h2>
 			</header>
+			{{ include "./_navigation.vto" }}
 			<main id="main" aria-live="polite">
-				{{ include "./_navigation.vto" }}
 				<div id="content">{{ content }}</div>
 			</main>
 			{{ include "./_footer.vto" }}

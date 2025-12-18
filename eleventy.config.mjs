@@ -1,6 +1,6 @@
 // Eleventy 3!
-import { VentoPlugin } from 'npm:eleventy-plugin-vento';
-import { EleventyRenderPlugin } from "npm:@11ty/eleventy@^3.1.0";
+import { VentoPlugin } from 'eleventy-plugin-vento';
+import { EleventyRenderPlugin } from "@11ty/eleventy";
 
 export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/css/*.css");

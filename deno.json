@@ -1,4 +1,7 @@
 {
+  "compilerOptions": {
+    "lib": ["dom", "deno.ns"]
+  },
   "tasks": {
     "clean": "rm -rf _site",
     "eleventyWatch": "deno run --allow-sys --allow-run --allow-read --allow-write --allow-env --allow-ffi npm:@11ty/eleventy@^3.1.2 --watch",
@@ -9,6 +12,7 @@
   "imports": {
     "@11ty/eleventy": "npm:@11ty/eleventy@^3.1.2",
     "@11ty/eleventy-plugin-bundle": "npm:@11ty/eleventy-plugin-bundle@^3.0.7",
-    "eleventy-plugin-vento": "npm:eleventy-plugin-vento"
+    "@oak/oak": "jsr:@oak/oak@^17.2.0",
+    "eleventy-plugin-vento": "npm:eleventy-plugin-vento@^5.2.1"
   }
 }

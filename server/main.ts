@@ -1,4 +1,4 @@
-import { Application, Router } from "https://deno.land/x/oak@v10.2.0/mod.ts";
+import { Application, Router } from "@oak/oak";
 
 const app = new Application();
 
@@ -21,6 +21,6 @@ const router = new Router();
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-console.log("🚀 Server ready! Browse at http://localhost:8000");
+console.log("✨ Server ready! Browse at http://localhost:8000 ✨");
 
 await app.listen({ port: 8000 });
