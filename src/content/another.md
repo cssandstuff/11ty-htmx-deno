@@ -2,7 +2,7 @@
 title: Htmx
 slug: Htmx
 tags: pages
-layout: layout.njk
+layout: layout.vto
 ---
 
 ## Hello!

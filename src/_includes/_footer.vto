@@ -1,4 +1,4 @@
-<footer webc:root="override">
+<footer class="footer">
 	<ul>
 		<li>
 		<a target="_blank" href="https://github.com/cssandstuff/11ty-htmx-deno">View on github</a>
@@ -9,8 +9,8 @@
 </ul>
 </footer>
 
-<style webc:scoped>
-	:host {
+<style>
+	.footer {
 		margin-top: var(--space-3);
 		padding: var(--space) var(--space-2);
 		background-color: var(--foreground-100);
@@ -19,10 +19,11 @@
 		align-items: baseline;
 		border-radius: 7px 7px 0 0;
 	}
-	:host ul{
+	.footer ul{
 		margin: 0; padding: 0;
 		display: flex;
 		gap: var(--space-2);
 		list-style: none;
 	}
 </style>
+

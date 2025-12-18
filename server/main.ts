@@ -21,4 +21,6 @@ const router = new Router();
 app.use(router.routes());
 app.use(router.allowedMethods());
 
+console.log("🚀 Server ready! Browse at http://localhost:8000");
+
 await app.listen({ port: 8000 });

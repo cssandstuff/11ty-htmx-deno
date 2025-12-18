@@ -1,5 +1,5 @@
-{% set currentUrl = page.url %}
-{%- js %}
+{{ set currentUrl = page.url }}
+{{- js }}
 	document.body.addEventListener('htmx:afterSwap', function(evt) {
 		let currentSlug = window.location.pathname;
 		let navLinks = document.querySelectorAll('#nav a');
@@ -13,27 +13,28 @@
 			}
 		});
 	});
-{% endjs %}
+{{ /js }}
 
 <nav id="nav" class="nav">
   <ul role="list">
     <li>
-      <a {% if currentUrl === '/' %}aria-current="page"{% endif %} href="/">11ty</a>
+      <a {{ if (currentUrl === '/') }}aria-current="page"{{ /if }} href="/">11ty</a>
     </li>
 
-    {% for link in collections.pages %}
+    {{ for link of collections.pages }}
       <li>
         <a
-        {% if currentUrl === link.url %}aria-current="page"{% endif %}
+        {{ if (currentUrl === link.url) }}aria-current="page"{{ /if }}
         href="{{ link.url }}">
           {{ link.data.slug }}
         </a>
       </li>
-    {%- endfor %}
+      
+    {{ /for }}
   </ul>
 </nav>
 
-{%- css %}
+{{- css }}
   .nav{
     margin-bottom: var(--space);
     font-family: var(--fontFam);
@@ -67,4 +68,5 @@
     padding: var(--space) calc( var(--space)/ 2);
     display: block;
   }
-{% endcss %}
+{{ /css }}
+

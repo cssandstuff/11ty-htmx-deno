@@ -1,7 +1,7 @@
 ---
 title: Esm in 11ty
 slug: 11ty
-layout: layout.njk
+layout: layout.vto
 ---
 
 ## 11ty
