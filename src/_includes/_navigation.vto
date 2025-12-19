@@ -1,4 +1,9 @@
 {{ set currentUrl = page.url }}
+{{ set sortedPages = [...collections.pages].sort((a, b) => {
+  // Sort by order
+  return (a.data.order - b.data.order);
+}) }}
+
 {{- js }}
 	document.body.addEventListener('htmx:afterSwap', function(evt) {
 		let currentSlug = window.location.pathname;
@@ -17,11 +22,7 @@
 
 <nav id="nav" class="nav">
   <ul role="list">
-    <li>
-      <a {{ if (currentUrl === '/') }}aria-current="page"{{ /if }} href="/">11ty</a>
-    </li>
-
-    {{ for link of collections.pages }}
+    {{ for link of sortedPages }}
       <li>
         <a
         {{ if (currentUrl === link.url) }}aria-current="page"{{ /if }}
@@ -29,7 +30,6 @@
           {{ link.data.slug }}
         </a>
       </li>
-      
     {{ /for }}
   </ul>
 </nav>

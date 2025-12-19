@@ -1,6 +1,8 @@
 ---
 title: Esm in 11ty
 slug: 11ty
+tags: pages
+order: 0
 layout: layout.vto
 ---
 
