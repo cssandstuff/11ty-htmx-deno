@@ -6,7 +6,7 @@
 :root{
   --fontFam: var(--fontFamFallback);
   --fontFamFallback: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",sans-serif;
-  
+  --background: #f4f2e9;
   --grey: #444;
   --grey-a50: hwb(0 27% 73% / 0.5);
   --grey-a0: hwb(0 27% 73% / 0);
@@ -21,6 +21,7 @@ html, body{
   margin: 0;
   padding: 0;
   height: 100%;
+  background-color: var(--background);
 }
 
 body {
@@ -30,6 +31,11 @@ body {
   color: var(--grey);
   max-width: 58ch;
   margin: auto;
+}
+
+a[href^="http"]::after {
+  content: " ↗";
+  margin-inline-end: 4px;
 }
 
 .layout{
@@ -106,8 +112,20 @@ a:visited{
 
 .header h2{
   font-size: 1.9em;
-  margin: var(--space) 0;
+  margin: var(--space) 0 0.5lh;
 }
+
+.header h2 span{
+  display: block;
+  font-weight: 200;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  opacity: 0.5;
+  margin-top: 5px;
+  letter-spacing: 0.09em;
+  margin-left: 3px;
+}
+
 
 .visually-hidden {
   position: absolute;
