@@ -7,10 +7,9 @@
 		<meta name="description" content="Starter site for people wanting to use 11ty with Deno (and Htmx)">
 
 		<link rel="stylesheet" href="/css/style.css" />
-		<style id="styles" data-hx-swap-oob="true">{{ getBundle "css" }}</style>
+		<style id="styles">{{ getBundle "css" }}</style>
 
 		<script src="https://unpkg.com/htmx.org@latest"></script>
-		<style id="styleswap"></style>
 	</head>
 	<body data-hx-boost="true" data-hx-target="#content" data-hx-select="#content" data-hx-swap="outerHTML transition:true show:none">
 		<h1 aria-live="polite" class="visually-hidden"  id="mainHeading" data-hx-swap-oob="innerHTML">{{ title }}</h1>

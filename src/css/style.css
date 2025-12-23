@@ -29,7 +29,7 @@ body {
   font-size: 1em;
   font-family: var(--fontFam);
   color: var(--grey);
-  max-width: 58ch;
+  max-width: 540px;
   margin: auto;
 }
 
